@@ -1,0 +1,36 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://www.decembermarket.geekbrains.com/soap/catalog"
+           targetNamespace="http://www.decembermarket.geekbrains.com/soap/catalog"
+           elementFormDefault="qualified">
+
+    <xs:element name="getProductsListRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="name" type="xs:string" />
+                <xs:element name="lastName" type="xs:string" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getProductsListResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="clientName" type="xs:string" />
+                <xs:element name="productsList" type="tns:productsList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="productDto">
+        <xs:sequence>
+            <xs:element name="title" type="xs:string"/>
+            <xs:element name="price" type="xs:double"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="productsList">
+        <xs:sequence>
+            <xs:element name="product" type="tns:productDto" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

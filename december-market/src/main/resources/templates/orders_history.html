@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>History Order</title>
+    <link rel="stylesheet" th:href="@{../static/css/stylesheet.css}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div th:replace="~{navigation :: navigation(History)}"/>
+    <br>
+    <h2 h2 align="center" th:text="${'История заказов пользователя ' + username}"></h2>
+    <br>
+
+    <table class="table table-bordered table-light">
+        <thead class="thead-light">
+        <tr>
+            <th>
+                <div th:text="'Номер заказа'"></div>
+            </th>
+            <th>
+                <div th:text="'Адрес доставки'"></div>
+            </th>
+            <th>
+                <div th:text="'Состав заказа'"></div>
+            </th>
+            <th>
+                <div th:text="'Стоимость заказа'"></div>
+            </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="c, iterStat : ${orders}" th:class="${iterStat.odd} ? 'odd'">
+            <td th:text="${c.id}"/>
+            <td th:text="${c.address}"/>
+            <td>
+                <p th:each="oi : ${c.items}"
+                   th:text="${oi.product.title} +'&nbsp;('+${oi.quantity}+'шт.)'+'&nbsp;'+ ${oi.product.price} +'&nbsp;руб./шт.'"/>
+            </td>
+            <td th:text="${c.price}"/>
+        </tr>
+        </tbody>
+    </table>
+    <br>
+    <br>
+</div>
+</body>
+</html>
