@@ -15,7 +15,7 @@
 <div class="container">
     <div th:replace="~{navigation :: navigation(Home)}" />
 
-    <h1 th:text="'Ваш заказ #' + ${order_id_str} + ' сформирован'"></h1>
+    <h1 th:text="'Ваш заказ #' + ${order_id_str}"></h1>
     <p>Благодарим за покупку!</p>
     <a th:href="@{/}">Вернуться на главную страницу</a>
 </div>

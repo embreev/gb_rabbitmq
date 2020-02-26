@@ -77,6 +77,13 @@
 			<artifactId>wsdl4j</artifactId>
 		</dependency>
 
+<!--		hw6-->
+		<dependency>
+			<groupId>com.rabbitmq</groupId>
+			<artifactId>amqp-client</artifactId>
+			<version>5.7.0</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>

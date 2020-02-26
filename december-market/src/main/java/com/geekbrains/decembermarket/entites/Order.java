@@ -35,12 +35,16 @@ public class Order {
     @Column(name = "phone_number")
     private String phone;
 
-    public Order(User user, Cart cart, String address, String phone) {
+    @Column(name = "status")
+    private String status;
+
+    public Order(User user, Cart cart, String address, String phone , String status) {
         this.user = user;
         this.price = cart.getPrice();
         this.items = new ArrayList<>();
         this.address = address;
         this.phone = phone;
+        this.status = status;
         for (OrderItem i : cart.getItems()) {
             i.setOrder(this);
             this.items.add(i);

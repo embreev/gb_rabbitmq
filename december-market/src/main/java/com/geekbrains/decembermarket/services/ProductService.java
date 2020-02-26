@@ -32,7 +32,7 @@ public class ProductService {
     }
 
 
-    public Product save(Product Product) {
-        return productRepository.save(Product);
+    public Product save(Product product) {
+        return productRepository.save(product);
     }
 }

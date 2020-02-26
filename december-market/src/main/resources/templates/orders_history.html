@@ -33,6 +33,9 @@
             <th>
                 <div th:text="'Стоимость заказа'"></div>
             </th>
+            <th>
+                <div th:text="'Статус заказа'"></div>
+            </th>
         </tr>
         </thead>
 
@@ -45,6 +48,7 @@
                    th:text="${oi.product.title} +'&nbsp;('+${oi.quantity}+'шт.)'+'&nbsp;'+ ${oi.product.price} +'&nbsp;руб./шт.'"/>
             </td>
             <td th:text="${c.price}"/>
+            <td th:text="${c.status}"/>
         </tr>
         </tbody>
     </table>
